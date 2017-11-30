@@ -11,7 +11,7 @@ Tensorflow classification of MNIST dataset trained on
 
 [https://draw-detect-mnist-tensorflow.herokuapp.com/](https://draw-detect-mnist-tensorflow.herokuapp.com/)
 
-This project gives insight on the trainig dataset used [MNIST Heatmap](https://github.com/Shivakishore14/MNIST-heatmap-tensorflow)
+This project gives insight on the training dataset used [MNIST Heatmap](https://github.com/Shivakishore14/MNIST-heatmap-tensorflow)
 
 ### How to run
 ```

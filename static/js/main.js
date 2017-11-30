@@ -109,7 +109,21 @@ function drawInput() {
     };
     img.src = canvas.toDataURL();
 }
+function get_stats(){
+    //to reduce bandwidth usage under slow connection speeds
+    if (is_polling)
+        return
+    is_polling = true
 
+    $.get("/visit_stats",{},function(result){
+        result = result.results;
+        $("#visits").html(result.visits);
+        $("#uniq_visits").html(result.uniq_visits);
+        $("#prediction_reqs").html(result.prediction_reqs);
+        is_polling = false
+    });
+}
+is_polling = false
 canvas = document.getElementById('main');
 input = document.getElementById('input');
 canvas.width  = 449; // 16 * 28 + 1
@@ -119,3 +133,5 @@ canvas.addEventListener('mousedown', onMouseDown.bind(this));
 canvas.addEventListener('mouseup',   onMouseUp.bind(this));
 canvas.addEventListener('mousemove', onMouseMove.bind(this));
 initialize();
+setInterval(get_stats, 5000);
+get_stats()
