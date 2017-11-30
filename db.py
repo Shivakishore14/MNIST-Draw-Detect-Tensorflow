@@ -33,7 +33,7 @@ class DataStore:
         try:
             self.cur.execute("""SELECT * from key_val_store""")
         except:
-            print "Error inserting to table"
+            print("Error inserting to table")
 
         rows = self.cur.fetchall()
         for row in rows:
@@ -46,5 +46,5 @@ class DataStore:
             query = "UPDATE key_val_store SET value_ = value_ + 1 WHERE key_ = '%s'"%(key)
             self.cur.execute(query)
         except:
-            print "Update Error"
+            print("Update Error")
         self.commit()
