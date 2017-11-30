@@ -17,10 +17,13 @@ class DataStore:
         )
         CREATE_TABLE = "CREATE TABLE IF NOT EXISTS key_val_store( key_ text , value_ int);"
         CREATE_ROW = "INSERT INTO key_val_store(key_, value_) SELECT '%s' , 0 WHERE '%s' NOT IN ( SELECT key_ FROM key_val_store);"
-        cur = conn.cursor()
         keys = ["visits", "uniq_visits", "prediction_reqs"]
+
+        cur = conn.cursor()
+        cur.execute(CREATE_TABLE)
         for k in keys:
             cur.execute(CREATE_ROW%(k,k))
+
         self.cur = cur
         self.conn = conn
         self.commit()
