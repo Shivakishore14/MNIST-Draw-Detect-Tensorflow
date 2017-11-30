@@ -4,9 +4,9 @@ import urlparse
 
 class DataStore:
     def __init__(self):
-        DATABASE_URL = 'postgres://mnistapp:mnistapppass@localhost/mnistappdb'
+        # DATABASE_URL = 'postgres://mnistapp:mnistapppass@localhost/mnistappdb'
         urlparse.uses_netloc.append("postgres")
-        url = urlparse.urlparse(DATABASE_URL)
+        url = urlparse.urlparse(os.environ['DATABASE_URL'])
 
         conn = psycopg2.connect(
             database=url.path[1:],
