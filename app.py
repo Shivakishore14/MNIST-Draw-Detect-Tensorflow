@@ -71,7 +71,7 @@ def main():
     resp = app.make_response(render_template('index.html'))
     if 'is_old_user' not in request.cookies:
         resp.set_cookie('is_old_user', 'True')
-        sb.update_key('uniq_visits')
+        db.update_key('uniq_visits')
     return resp
 
 
