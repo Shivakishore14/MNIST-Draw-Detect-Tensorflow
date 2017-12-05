@@ -30,7 +30,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            pip install -r requirements.txt
+            pip --user install -r requirements.txt
 
       - save_cache:
           paths:
@@ -43,7 +43,3 @@ jobs:
       #     command: |
       #       . venv/bin/activate
       #       python manage.py test
-
-      # - store_artifacts:
-      #     path: test-reports
-      #     destination: test-reports
